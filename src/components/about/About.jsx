@@ -9,7 +9,7 @@ const About = () => {
         <div className="about_section">
           <h2>Get to Know Me</h2>
           <hr />
-          <p>👋 Hello! I'm Yu Feng, a dedicated technology enthusiast with dual master's degrees in Computer Science and pharmaceutical science. My academic journey led me to the thrilling world of software development, a field I deeply enjoy and am eager to share with you. My ambition is to integrate my skills in software development and data science to make impactful contributions to both the technology and healthcare industries. Besides my tech pursuits, I am also fervently passionate about photography and am looking forward to unveiling my portfolio soon.</p>
+          <p>👋 Hello! I'm Yu Feng, a dedicated technology enthusiast with dual master's degrees in Computer Science and Pharmaceutical Science. My academic journey led me to the thrilling world of software development, a field I deeply enjoy and am eager to share with you. My ambition is to integrate my skills in software development and data science to make impactful contributions to both the technology and healthcare industries. Besides my tech pursuits, I am also fervently passionate about photography and am looking forward to unveiling my portfolio soon.</p>
           <br />
           <p id="welcome"><b>Welcome to my digital abode!</b></p>
           <a href="#Contact">
