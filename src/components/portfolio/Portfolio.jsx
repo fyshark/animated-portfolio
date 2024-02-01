@@ -1,86 +1,93 @@
-import "./portfolio.scss"
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from 'react';
+import { useEffect } from 'react';
+import './portfolio.scss';
+import { Link } from 'react-router-dom';
 
-const items = [
-    {
-        id: 1,
-        title: "Dublin street",
-        img: "https://images.unsplash.com/photo-1549918864-48ac978761a4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        desc: "The internet's source for visuals. Powered by creators everywhere."
-    },
-    {
-        id: 2,
-        title: "Galway street",
-        img: "https://media.istockphoto.com/id/531926638/photo/across-galway-harbour-ireland.jpg?s=2048x2048&w=is&k=20&c=y9nCsPdnYQ8ICHz8JDCjlucU9-va2yc4sv5-AQ5ESIg=",
-        desc: "The internet's source for visuals. Powered by creators everywhere."
-    },
-    {
-        id: 3,
-        title: "Cork street",
-        img: "https://media.gettyimages.com/id/1436192145/photo/ireland-county-cork-cobh-colorful-row-houses-standing-along-steep-street-with-saint-colmans.jpg?s=2048x2048&w=gi&k=20&c=HD5GUV2IYSGe7cZOmYxiVLW7vvMc_KRsayzsMwnh0jY=",
-        desc: "The internet's source for visuals. Powered by creators everywhere."
-    },
-    {
-        id: 4,
-        title: "Limerick street",
-        img: "https://media.istockphoto.com/id/1407173048/photo/a-modern-city-street-with-ruins-of-a-medieval-house-in-limerick-ireland.jpg?s=612x612&w=0&k=20&c=sLwLk5T8riqsUUzb3k4YdzfaAwv_ePIv050DqVt7qVE=",
-        desc: "The internet's source for visuals. Powered by creators everywhere."
-    },
-];
 
-const Single = ({ item }) => {
-
-    const ref = useRef();
-
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        // offset: ["start start", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-
-    return (
-        <section>
-            <div className="container">
-                <div className="wrapper">
-                    <div className="imageContainer" ref={ref}>
-                        <img src={item.img} alt="" />
-                    </div>
-                    <motion.div className="textContainer" style={{ y }}>
-                        <h2>{item.title}</h2>
-                        <p>{item.desc}</p>
-                        <button>See Demo</button>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    )
-};
 
 const Portfolio = () => {
-    const ref = useRef();
-
-
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["end end", "start start"]
-    });
-
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-    });
 
     return (
-        <div className="portfolio" ref={ref}>
-            <div className="progress">
-                <h1>Featured Works</h1>
-                <motion.div style={{ scaleX }} className="progressBar"></motion.div>
+        <div className="portfolio">
+            <nav className="navigation">
+                <button><a href="/">Home</a></button>
+                <div className="dropdown">
+                    <button className="dropbtn">Collection</button>
+                    <div className="dropdown-content">
+                        <a href="/portfolio#street">Street</a>
+                        <a href="/portfolio#landscape">Landscape</a>
+                        <a href="/portfolio#portrait">Portrait</a>
+                    </div>
+                </div>
+                <button>
+                    <Link to="/#About">About</Link>
+                </button>
+                <button><a href="/#Contact">Contact</a></button>
+            </nav>
+
+            <div className="collection-display" id="street">
+                <h2>STREET Collection</h2>
+                <div className="street-gallery">
+                    <div className="img-container">
+                        <img src="/street2.png" loading="lazy" alt="Street View 2" />
+                        <img src="/street4.png" loading="lazy" alt="Street View 4" />
+                        <img src="/street7.png" loading="lazy" alt="Street View 7" />
+                    </div>
+                    <div className="img-container">
+                        <img src="/street3.png" loading="lazy" alt="Street View 3" />
+                        <img src="/street5.png" loading="lazy" alt="Street View 5" />
+                        <img src="/street8.png" loading="lazy" alt="Street View 8" />
+                    </div>
+                    <div className="img-container">
+                        <img src="/street1.png" loading="lazy" alt="Street View 1" />
+                        <img src="/street6.png" loading="lazy" alt="Street View 6" />
+                        <img src="/street9.png" loading="lazy" alt="Street View 9" />
+                    </div>
+                </div>
             </div>
-            {items.map((item) => (
-                <Single item={item} key={item.id} />
-            ))}
+
+            <div className="collection-display" id="landscape">
+                <h2>LANDSCAPE Collection</h2>
+                <div className="landscape-gallery">
+                    <div className="img-container">
+                        <img src="/landscape1.png" loading="lazy" alt="Landscape View 1" />
+                        <img src="/landscape4.png" loading="lazy" alt="Landscape View 4" />
+                        <img src="/landscape5.png" loading="lazy" alt="Landscape View 5" />
+                    </div>
+                    <div className="img-container">
+                        <img src="/landscape2.png" loading="lazy" alt="Landscape View 2" />
+                        <img src="/landscape6.png" loading="lazy" alt="Landscape View 6" />
+                        <img src="/landscape7.png" loading="lazy" alt="Landscape View 7" />
+                    </div>
+                    <div className="img-container">
+                        <img src="/landscape3.png" loading="lazy" alt="Landscape View 3" />
+                        <img src="/landscape8.png" loading="lazy" alt="Landscape View 8" />
+                        <img src="/landscape9.png" loading="lazy" alt="Landscape View 9" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="collection-display" id="portrait">
+                <h2>PORTRAIT Collection</h2>
+                <div className="Portrait-gallery">
+                    <div className="img-container">
+                        <img src="portrait1.png" loading="lazy" alt="Portrait View 1" />
+                        <img src="portrait6.png" loading="lazy" alt="Portrait View 6" />
+                        <img src="portrait8.png" loading="lazy" alt="Portrait View 8" />
+
+                    </div>
+                    <div className="img-container">
+                        <img src="portrait2.png" loading="lazy" alt="Portrait View 2" />
+                        <img src="portrait4.png" loading="lazy" alt="Portrait View 4" />
+                        <img src="portrait5.png" loading="lazy" alt="Portrait View 5" />
+
+                    </div>
+                    <div className="img-container">
+                        <img src="portrait3.png" loading="lazy" alt="Portrait View 3" />
+                        <img src="portrait7.png" loading="lazy" alt="Portrait View 7" />
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

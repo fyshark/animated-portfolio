@@ -1,6 +1,8 @@
+
 html{
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 *{
@@ -11,8 +13,9 @@ html{
 }
 
 body{
-    background-color: #0c0c1d;
-    color: lightgray;
+    background-color: #CEDEBD;
+    color: var(--FONT-DARKGREEN-COLOR);
+    // overflow-y: scroll;
 }
 
 a {
@@ -23,4 +26,26 @@ a {
 section{
     height: 100vh;
     scroll-snap-align: center;
+}
+
+:root {
+    --BASE-BEIGE-COLOR: #f6f0de;
+    --BUTTON-YELLOW-COLOR: #fccf61;
+    --FONT-DARKGREEN-COLOR: #222825;
+}
+
+@mixin mobile {
+    @media (max-width: 738px) {
+        @content;
+    }
+}
+
+@media (max-width: 738px) {
+    #Content {
+        display: none;
+    }
+
+    #Project{
+        display: none;
+    }
 }

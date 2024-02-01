@@ -9,25 +9,32 @@ const Sidebar = () => {
 
   const variants = {
     open:{
-      clipPath: "circle(1200px at 50px 50px)",
+      clipPath: "circle(1500px at 50px 50px)",
       type: "spring",
-      stiffness: 20,
+      stiffness: 20
     },
+
     closed: {
       clipPath: "circle(30px at 50px 50px)",
       transition:{
         delay: 0.5,
         type: "spring",
         stiffness: 400,
-        damping: 40,
+        damping: 40
       }
     }
   };
 
+  const closeSidebar = () => {
+    setOpen(false);
+  };
+
+  const backgroundColor = "#fccf61";
+
   return (
     <motion.div className="sidebar" animate={open ? "open" : "closed"}>
-      <motion.div className="bg" variants={variants}>
-        <Links />
+      <motion.div className="bg" variants={variants} style={{ backgroundColor }} >
+        <Links onLinkClick={closeSidebar} />
       </motion.div>
       <ToggleButton setOpen={setOpen} />
     </motion.div>

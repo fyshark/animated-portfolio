@@ -12,12 +12,12 @@ const Navbar = () => {
                              animate={{ opacity:1, scale:1 }} 
                              transition={{ duration:0.5 }}
                 >
-                    Yu Feng</motion.span>
-                <div className="social">
-                    <a href="#"><img src="/facebook.png" alt="" /></a>
-                    <a href="#"><img src="/linkedin.png" alt="" /></a>
-                    <a href="#"><img src="/instagram.png" alt="" /></a>
-                    <a href="#"><img src="/youtube.png" alt="" /></a>
+                    </motion.span>
+                <div className="social">                 
+                    <a href="https://www.linkedin.com/in/yu-01/" target='_blank'><img src="/linkedin.png" alt="linkedin icon"/></a>
+                    <a href="https://www.instagram.com/imaginosity_/" target='_blank'><img src="/instagram.png" alt="instagram icon" /></a>
+                    <a href="https://github.com/fyshark" target='_blank'><img src="/github1.png" alt="github icon"/></a>
+                    <a href="mailto:fengyu@tcd.ie" target='_blank'><img src="/email.png" alt="send email"/></a>
                 </div>
             </div>
         </div>
