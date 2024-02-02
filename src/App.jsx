@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from "./components/navbar/Navbar";
+import Chatbot from './chatbot/Chatbot';
 import Hero from "./components/hero/Hero";
 import Parallax from "./components/parallax/Parallax";
 import Content from "./components/content/Content";
@@ -8,7 +9,6 @@ import Project from "./components/project/Project";
 import Contact from "./components/contact/Contact";
 import Portfolio from "./components/portfolio/Portfolio";
 import About from "./components/about/About";
-import Links from './components/siderbar/links/Links';
 import "./app.scss";
 
 const ScrollToTop = () => {
@@ -56,6 +56,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
+      <Chatbot />
       <Routes>
         {/* The Portfolio Route */}
         <Route path="/portfolio" element={<Portfolio />} />
@@ -63,10 +64,8 @@ const App = () => {
         {/* The Main Page Route */}
         <Route path="/" element={
           <>
-
             <section id="Homepage">
               <Navbar />
-              {/* <Links /> */}
               <Hero />
             </section>
             <section id="About">

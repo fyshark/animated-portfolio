@@ -1,0 +1,183 @@
+.chatbot {
+
+    #chat-button-container {
+        position: fixed;
+        bottom: 3%;
+        right: 5%;
+        z-index: 1010;
+        display: flex; 
+        align-items: center; 
+        min-width: 250px;
+    }
+
+    #chat-button, #bell-button {
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        border-radius: 20px; 
+        margin-right: 10px; 
+    }
+
+    #chat-button {
+        background-color: #f0f0f0;
+        color: var(--FONT-DARKGREEN-COLOR);
+        z-index: 1005;
+        // border: none;
+        // cursor: pointer;
+        // padding: 10px 20px;
+        // border-radius: 20px;
+        // font-size: 16px;
+        // transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: var(--FONT-DARKGREEN-COLOR);
+            color:#f0f0f0;
+        }
+    }
+
+    #bell-button {
+        background-image: url(/bell.png);
+        background-color: transparent; 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        border: none;
+        cursor: pointer;
+        width: 70px;
+        height: 60px; 
+        margin-left: 6px; 
+        padding: 10%;
+        z-index: 1005;
+        transition: transform 0.3s ease; // 添加平滑过渡效果
+
+        &:hover {
+            transform: scale(1.2); // 鼠标悬停时放大10%
+          }
+    }
+    
+
+    #chat-window {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        padding-bottom: 10px; // 确保在窗口底部为输入区域留出空间
+        overflow: hidden; // 防止内容溢出窗口
+        position: fixed;
+        bottom: 70px; // Adjust the height based on the chat button
+        right: 3%;
+        width: 20%;
+        height: 58%;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+
+        #chat-header {
+            background-color: var(--FONT-DARKGREEN-COLOR);
+            color: white;
+            padding: 3%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+
+            h3 {
+                margin: 0;
+            }
+
+            #chat-avatar {
+                width: 15%; // 头像的宽度
+                height: auto; // 头像的高度
+                border-radius: 50%; // 圆形头像
+                margin-right: 10px; // 与标题的间隔
+              }
+
+            #close-chat {
+                background: none;
+                // border:none;
+                color: white;
+                cursor: pointer;
+                font-size: 180%;
+            }
+        }
+
+        // Add styles for the chat messages and input area
+        // ...
+
+        #chat-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            
+            .message {
+              max-width: 70%; // 限制消息框的最大宽度
+              margin-bottom: 10px; // 消息之间的间距
+              padding: 10px; // 消息内部的填充
+              border-radius: 20px; // 消息框的边框圆角
+              color: white; // 文字颜色
+              
+              &.sent {
+                align-self: flex-end; // 发送的消息靠右
+                background-color: #007aff; // 发送的消息背景颜色
+              }
+          
+              &.received {
+                align-self: flex-start; // 接收的消息靠左
+                background-color: #f2f2f7; // 接收的消息背景颜色
+                color: black; // 更改接收消息的文字颜色以保证可读性
+              }
+            }
+          }
+          
+
+        #chat-input-container {
+            margin-top: auto;
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            width: 100%;
+        
+            #chat-input {
+                flex-grow: 1; // 输入框自动填充剩余空间
+            margin-right: 10px; // 在输入框和发送按钮之间添加间隔
+              padding: 2%;
+              border-radius: 5px;
+              border: 1px solid #ccc; // 或者任何您想要的样式
+            }
+        
+            // #send-message {
+            //   padding: 5px 10px;
+            //   background-color: #4CAF50; // 发送按钮的背景色
+            //   color: white;
+            //   border: none;
+            //   border-radius: 5px;
+            //   cursor: pointer;
+
+        
+            //   &:hover {
+            //     background-color: darken(#4CAF50, 10%);
+            //   }
+            // }
+
+            #send-message {
+                background-image: url('/send.png'); // 设置发送图片作为背景
+                background-color: transparent; // 确保背景透明
+                background-repeat: no-repeat; // 防止背景图像重复
+                background-size: contain; // 使图像完全适应按钮大小
+                border: none; // 移除边框
+                width: 50px; // 设置适当的宽度
+                height: 50px; // 设置适当的高度
+                cursor: pointer;
+              
+                &:hover {
+                  transform: scale(1.1); // 可选：鼠标悬停时放大效果
+                }
+              }
+          }
+    }
+
+}
