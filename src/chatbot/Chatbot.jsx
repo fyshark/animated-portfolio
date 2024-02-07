@@ -12,7 +12,7 @@ const Chatbot = () => {
         }
     ]);
     const [userId, setUserId] = useState('');
-
+    const [sessionId, setSessionId] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
 
     // 切换聊天窗口状态的函数
@@ -28,11 +28,20 @@ const Chatbot = () => {
     useEffect(() => {
         // 生成或获取已存在的用户ID
         let currentUserId = localStorage.getItem('userId');
+        let sessionId = localStorage.getItem('sessionId');
+
         if (!currentUserId) {
             currentUserId = `user_${Date.now()}`;
             localStorage.setItem('userId', currentUserId);
         }
+
+        if (!sessionId) {
+            sessionId = `session_${Date.now()}`; // 或使用更复杂的UUID生成方法
+            localStorage.setItem('sessionId', sessionId);
+        }
+
         setUserId(currentUserId);
+        setSessionId(sessionId);
     }, []);
 
     // 处理发送消息的函数
@@ -46,8 +55,9 @@ const Chatbot = () => {
 
             try {
                 // 发送请求到后端
-                const response = await axios.post('http://localhost:3001/generate-response', {
+                const response = await axios.post('https://server.yu-feng.me/generate-response', {
                     userId,
+                    sessionId,
                     message: userInput, // 确保这里的字段与后端期望的一致
                 });
 
