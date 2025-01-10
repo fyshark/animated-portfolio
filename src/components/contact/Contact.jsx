@@ -51,11 +51,11 @@ const Contact = () => {
                 </motion.div>
                 <motion.div className="item" variants={variants}>
                     <h2>Phone</h2>
-                    <span>(+353) 0873800744</span>
+                    <span>(+49) 015259149408</span>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
                     <h2>Address</h2>
-                    <span>Dublin, Ireland</span>
+                    <span>Berlin, Germany</span>
                 </motion.div>
             </motion.div>
             <div className="formContainer">

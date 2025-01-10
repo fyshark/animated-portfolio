@@ -95,7 +95,7 @@ const Hero = () => {
                         I'm Yu Feng
                     </motion.h1>
                     <motion.p>
-                    As a passionate photographer with a keen eye for detail, I'm on a journey to bridge the worlds of software development and data analysis. Join me as I capture the beauty of code and the insights hidden in data.
+                    As a passionate software engineer and photographer with a keen eye for detail, I am on a journey to bridge the worlds of technology and creativity. Join me as I capture the beauty of code and the art in every frame.
                     </motion.p>
                     <AnimatePresence mode="wait">
                         {currentText === 0 && (
@@ -119,7 +119,7 @@ const Hero = () => {
                                 exit="exit"
                                 className="custom-font"
                             >
-                                Data Analyst/Scientist
+                                ML Engineer/Scientist
                             </motion.span>
                         )}
                     </AnimatePresence>

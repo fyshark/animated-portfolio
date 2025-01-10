@@ -61,6 +61,12 @@ const Chatbot = () => {
                     message: userInput, // 确保这里的字段与后端期望的一致
                 });
 
+                // const response = await axios.post('http://localhost:3001/generate-response', {
+                //     userId,
+                //     sessionId,
+                //     message: userInput, // 确保这里的字段与后端期望的一致
+                // });
+
                 // 接收回答并更新到聊天界面
                 const botMessage = {
                     text: response.data.message,

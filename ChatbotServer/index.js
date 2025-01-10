@@ -10,7 +10,6 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // OpenAI API setup
-// Since we're directly importing OpenAI, we no longer use Configuration and OpenAIApi separately
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -18,7 +17,7 @@ const openai = new OpenAI({
 const sessions = new Map();
 
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // Rate limiter middleware
 const apiLimiter = rateLimit({
@@ -36,23 +35,12 @@ const apiLimiter = rateLimit({
 
 // Endpoint to handle chat responses
 app.post('/generate-response', apiLimiter, async (req, res) => {
-
+  console.log("Request " + req.headers)
   const { userId, sessionId, message } = req.body; // 假设请求体中包含 userId 和 message
 
   // const {message} = req.body;
 
-  console.log("msg: ", message)
-
-  // // Check if user session exists
-  // if (!sessions.has(userId)) {
-  //   // 如果不存在，为该用户创建一个新的对话节
-  //   sessions.set(userId, { sectionId: Date.now(), questions: [], lastActive: Date.now() });
-  // } else {
-  //   // 如果存在，更新 lastActive 时间戳为当前时间
-  //   const session = sessions.get(userId);
-  //   session.lastActive = Date.now();
-  //   sessions.set(userId, session);
-  // }
+  // console.log("msg: ", message)
 
   // 构造一个独特的会话键，例如 "userId_sessionId"
   const sessionKey = `${userId}_${sessionId}`;
@@ -80,27 +68,37 @@ app.post('/generate-response', apiLimiter, async (req, res) => {
   // System messages based on CV summary, broken down into digestible parts for the chat
   const systemMessages = [
     {
-      role: "system",
-      content: "You are a helpful assistant knowledgeable about Yu Feng's professional background and skills."
+        role: "system",
+        content: "You are a helpful assistant knowledgeable about Yu Feng's professional background and skills."
     },
     {
-      role: "system",
-      content: "Yu Feng is coming from China and now she's currently living in Dublin, Ireland. She is 27 years old, her boyfriend is Itgel."
+        role: "system",
+        content: "Yu Feng is originally from China and currently resides in Berlin, Germany."
     },
     {
-      role: "system",
-      content: "Yu Feng's experience includes being a Fraud Investigation Specialist at Amazon, Ireland, focusing on data-driven decision support, fraud risk analytics, and project-based statistical analysis."
+        role: "system",
+        content: "Yu Feng's contact information is as follows: Phone number: (+49) 015259149408, Email address: fengyu@tcd.ie."
     },
     {
-      role: "system",
-      content: "Yu Feng holds an MSc in Computer Science from University College Dublin, Ireland, specializing in Java, Machine Learning, Software Engineering, Cloud Computing."
+        role: "system",
+        content: "Yu Feng's experience includes being a Fraud Investigation Specialist at Amazon, Ireland, focusing on data-driven decision support, fraud risk analytics, and project-based statistical analysis."
     },
     {
-      role: "system",
-      content: "Key projects include developing a web application for Manhattan parking/fuel/charging station recommendations using Java, Spring Boot, Python, React, PostgreSQL."
+        role: "system",
+        content: "Yu Feng recently worked as a Software Engineer Intern at Tenable, Ireland, from June 2024 to September 2024. She collaborated with the data processing team, processing hosts and vulnerabilities using Kotlin and Gradle. She designed and implemented end-to-end tests to validate data flows from Kafka to DynamoDB, ensuring data integrity and system reliability. Yu Feng also implemented metrics to reduce delays in Kafka queue processing, utilized Splunk for monitoring, and automated CI/CD pipelines using Jenkins and Rancher."
+    },
+    {
+        role: "system",
+        content: "Yu Feng holds an MSc in Computer Science from University College Dublin, Ireland, with expertise in Java, Machine Learning, Software Engineering, and Cloud Computing."
+    },
+    {
+        role: "system",
+        content: "Key projects include developing a web application for Manhattan parking/fuel/charging station recommendations using Java, Spring Boot, Python, React, and PostgreSQL."
     }
     // Add more system messages as needed
   ];
+
+
 
   try {
 

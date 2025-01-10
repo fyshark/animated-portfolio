@@ -32,7 +32,7 @@ const Links = ({ onLinkClick }) => {
         { name: "Homepage", path: "/#Homepage" },
         { name: "About", path: "/#About" },
         { name: "Content", path: isMobile ? "/#ContentSection" : "/#Content" },
-        { name: "Portfolio", path: "/portfolio" },
+        { name: "Photos", path: "/portfolio" },
         { name: "Project", path: isMobile ? "/#case-study-1" : "/#Project" },
         { name: "Contact", path: "/#Contact" },
     ];
