@@ -56,10 +56,10 @@
     margin-left: 6px;
     padding: 10%;
     z-index: 1005;
-    transition: transform 0.3s ease; // 添加平滑过渡效果
+    transition: transform 0.3s ease; // Add a smooth transition effect
 
     &:hover {
-      transform: scale(1.2); // 鼠标悬停时放大10%
+      transform: scale(1.2); // Zoom in 10% on mouse hover
     }
   }
 
@@ -68,8 +68,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 10px; // 确保在窗口底部为输入区域留出空间
-    overflow: hidden; // 防止内容溢出窗口
+    padding-bottom: 10px; // Make sure to leave space for the input area at the bottom of the window
+    overflow: hidden; // Prevent Content Overflow Window
     position: fixed;
     bottom: 3%; // Adjust the height based on the chat button
     right: 2%;
@@ -95,10 +95,10 @@
       }
 
       #chat-avatar {
-        width: 15%; // 头像的宽度
-        height: auto; // 头像的高度
-        border-radius: 50%; // 圆形头像
-        margin-right: 10px; // 与标题的间隔
+        width: 15%; // Width of avatar
+        height: auto; // height of avatar
+        border-radius: 50%; // circular avatar
+        margin-right: 10px; // Spacing from title
       }
 
       #close-chat {
@@ -132,21 +132,21 @@
       padding: 10px;
 
       .message {
-        max-width: 70%; // 限制消息框的最大宽度
-        margin-bottom: 10px; // 消息之间的间距
-        padding: 10px; // 消息内部的填充
-        border-radius: 20px; // 消息框的边框圆角
-        color: white; // 文字颜色
+        max-width: 70%; // Limit the maximum width of the message box
+        margin-bottom: 10px; // Spacing between messages
+        padding: 10px; // Message internal padding
+        border-radius: 20px; // Message box with rounded corners
+        color: white; // text color
 
         &.sent {
-          align-self: flex-end; // 发送的消息靠右
-          background-color: #007aff; // 发送的消息背景颜色
+          align-self: flex-end; // messages sent aligned to the right
+          background-color: #007aff; // background color of the messages sent
         }
 
         &.received {
-          align-self: flex-start; // 接收的消息靠左
-          background-color: rgb(235, 235, 235); // 接收的消息背景颜色
-          color: black; // 更改接收消息的文字颜色以保证可读性
+          align-self: flex-start; // received messages aligned to the left
+          background-color: rgb(235, 235, 235); // background color of the messages received
+          color: black; // change the text color of incoming messages for readability
         }
       }
     }
@@ -161,16 +161,16 @@
       height: 40px;
 
       #chat-input {
-        flex-grow: 1; // 输入框自动填充剩余空间
-        margin-right: 10px; // 在输入框和发送按钮之间添加间隔
+        flex-grow: 1; // Input box auto-fill remaining space
+        margin-right: 10px; // Add spacing between the input box and the send button
         padding: 2%;
         border-radius: 5px;
-        border: 1px solid #ccc; // 或者任何您想要的样式
+        border: 1px solid #ccc;
       }
 
       // #send-message {
       //   padding: 5px 10px;
-      //   background-color: #4CAF50; // 发送按钮的背景色
+      //   background-color: #4CAF50;
       //   color: white;
       //   border: none;
       //   border-radius: 5px;
@@ -183,17 +183,17 @@
       // }
 
       #send-message {
-        background-image: url('/send.png'); // 设置发送图片作为背景
-        background-color: transparent; // 确保背景透明
-        background-repeat: no-repeat; // 防止背景图像重复
-        background-size: contain; // 使图像完全适应按钮大小
-        border: none; // 移除边框
-        width: 50px; // 设置适当的宽度
-        height: 50px; // 设置适当的高度
+        background-image: url('/send.png');
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: none;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
 
         &:hover {
-          transform: scale(1.1); // 可选：鼠标悬停时放大效果
+          transform: scale(1.1);
         }
       }
     }
